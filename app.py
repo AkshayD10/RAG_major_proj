@@ -273,7 +273,7 @@ with st.sidebar:
             "sentence-transformers/all-mpnet-base-v2"
               # Smaller, faster model option
         ],
-        index=1  # Default to the smaller model
+        index=0  # Default to the smaller model
     )
     
     # Add OpenRouter model selection
