@@ -270,8 +270,8 @@ with st.sidebar:
     embedding_model = st.selectbox(
         "Embedding Model",
         [
-            "sentence-transformers/all-mpnet-base-v2",
-            "sentence-transformers/all-MiniLM-L6-v2"  # Smaller, faster model option
+            "sentence-transformers/all-mpnet-base-v2"
+              # Smaller, faster model option
         ],
         index=1  # Default to the smaller model
     )
@@ -279,7 +279,7 @@ with st.sidebar:
     # Add OpenRouter model selection
     or_model = st.selectbox(
         "OpenRouter Model",
-        ["deepseek/deepseek-r1-zero:free", "anthropic/claude-3-haiku", "google/gemma-7b-it"],
+        ["deepseek/deepseek-r1-zero:free"],
         index=0
     )
 
@@ -486,15 +486,6 @@ with st.sidebar:
     4. Ask questions about the content in your documents
     """)
     
-    st.markdown("---")
-    st.subheader("Troubleshooting Tips")
-    st.markdown("""
-    - Keep files small for cloud deployment
-    - Use the smaller embedding model for faster processing
-    - Enable Debug Mode for detailed error messages
-    - If processing fails, try reducing chunk size
-    - Make sure your documents contain text content
-    """)
     
     st.markdown("---")
     st.markdown("This app uses:")
