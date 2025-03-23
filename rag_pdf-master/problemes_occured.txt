@@ -1,0 +1,36 @@
+Errors Faced and Resolutions
+1. Error: chromadb.errors.InvalidDimensionException
+Cause: Embedding dimension (e.g., 768) did not match the collection dimensionality (e.g., 384).
+
+Resolution:
+
+Deleted the existing Chroma collection using shutil.rmtree("./chroma_db").
+
+Recreated the collection with the correct embedding model (sentence-transformers/all-mpnet-base-v2).
+
+2. Error: no such table: collections
+Cause: Chroma database schema was missing or corrupted.
+
+Resolution:
+
+Deleted the chroma_db directory.
+
+Reprocessed documents to recreate the collection.
+
+3. Error: RAG System Responded Vaguely
+Cause: Prompt instructions were not specific enough to handle missing information.
+
+Resolution:
+
+Updated the prompt to explicitly handle cases where information is missing.
+
+Example: "If no relevant information is available, clearly state that you don't have enough information."
+
+4. Error: RAG System Could Not Infer Missing Information
+Cause: The system defaulted to neutral responses when information was missing.
+
+Resolution:
+
+Modified the prompt to allow logical inferences based on available context.
+
+Example: "If the context does not explicitly contain the information, make a logical inference."
