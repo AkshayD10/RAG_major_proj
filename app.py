@@ -306,8 +306,8 @@ from langchain_community.document_loaders import (
 from rag import DocumentRAG, OpenRouterLLM 
 
 # Set up page configuration
-st.set_page_config(page_title="Document QA System", page_icon="📚", layout="wide")
-st.title("📚 Document QA System with FAISS")
+st.set_page_config(page_title="Namd RAG", page_icon="📚", layout="wide")
+st.title("📚 Namd RAG")
 st.subheader("Upload documents and ask questions about them")
 
 # Create a lightweight requirements.txt file with dependencies needed
@@ -517,7 +517,7 @@ with upload_container:
     st.subheader("Upload Documents")
     
     # Add file size warning
-    st.info("📌 Note: For cloud deployment, keep your files small (ideally < 5MB total) to avoid memory issues.")
+    # st.info("📌 Note: For cloud deployment, keep your files small (ideally < 5MB total) to avoid memory issues.")
     
     uploaded_files = st.file_uploader(
         "Choose files (PDF, DOCX, TXT, CSV, XLS, XLSX)", 
