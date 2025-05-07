@@ -20,3 +20,5 @@ langchain
 langchain-community
 faiss-cpu
 pydantic
+rank_bm25>=0.2.2
+numpy>=1.21.0 

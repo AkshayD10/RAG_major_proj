@@ -1,0 +1,82 @@
+Chunking Parameters
+1. chunk_size (Max size of each chunk)
+What it does: Defines max tokens/characters per chunk (e.g., chunk_size=500 → max 500 tokens).
+
+Why it matters:
+
+Too large → Slower processing, irrelevant info.
+
+Too small → Loses context, harder to understand.
+
+Typical values: 300–1000 tokens; adjust based on content type.
+
+2. chunk_overlap (Overlap between consecutive chunks)
+What it does: Ensures context preservation across chunks (e.g., chunk_size=500, chunk_overlap=100).
+
+Why it matters:
+
+Maintains sentence coherence.
+
+Prevents key concepts from being cut off.
+
+Typical values: 10–20% of chunk_size (e.g., chunk_size=500 → chunk_overlap=50–100).
+
+How They Work Together
+Example (chunk_size=20, chunk_overlap=5):
+
+Chunk 1: "The quick brown fox ju"
+
+Chunk 2: "fox jumps over the la"
+
+Chunk 3: "the lazy dog. The dog"
+
+Overlap ensures continuity (e.g., "fox" appears in both Chunk 1 & 2).
+
+Impact on System
+Embedding Generation:
+
+Smaller chunks → More embeddings (higher storage).
+
+Larger chunks → Fewer embeddings (risk of irrelevant info).
+
+Retrieval Quality:
+
+Balanced chunking improves search accuracy.
+
+Performance:
+
+Smaller chunks → Faster but storage-heavy.
+
+Larger chunks → Slower but efficient retrieval.
+
+Best Practices
+✅ Start with chunk_size=500, chunk_overlap=100.
+✅ Adjust based on content (Technical: 300, Conversational: 800).
+✅ Avoid splitting sentences (Use RecursiveCharacterTextSplitter).
+
+Retrieval Parameter (k)
+What k Does
+Retrieves k most relevant chunks based on similarity.
+
+More chunks improve accuracy but may slow retrieval.
+
+How k Affects Performance
+Small k (1–3):
+✅ Faster, focused on most relevant info.
+❌ May miss important context.
+
+Large k (5–10):
+✅ Better for complex questions, more context.
+❌ Slower, risk of irrelevant chunks.
+
+Choosing the Right k
+✅ Default: k=4 or k=5.
+✅ Simple Qs: k=2–3, Complex Qs: k=5–10.
+✅ Test different k values to optimize retrieval.
+
+
+
+
+
+
+
