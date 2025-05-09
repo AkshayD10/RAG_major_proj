@@ -1,24 +1,28 @@
-langchain>=0.1.13
-langchain-community>=0.0.32
-langchain-core>=0.1.42
-langchain-text-splitters>=0.0.1
-requests>=2.31.0
-huggingface-hub>=0.21.4
-sentence-transformers>=2.7.0
-chromadb>=0.4.24
 streamlit>=1.33.0
-python-dotenv>=1.0.0
-pypdf>=3.17.0
-docx2txt>=0.8
-unstructured[local-inference]>=0.12.2
-openpyxl>=3.1.2
-python-magic>=0.4.27
+
+# Core Langchain
+langchain>=0.1.13,<0.2.0
+langchain-community>=0.0.32,<0.1.0
+langchain-core>=0.1.42,<0.2.0
+langchain-text-splitters>=0.0.1,<0.1.0
+langchain-huggingface>=0.0.1
+
+# LLM & API Interaction
+requests>=2.31.0,<3.0.0
+pydantic<2 # Given your OpenRouterLLM Config class syntax
+
+# Embeddings & Vector Stores
+sentence-transformers>=2.7.0,<3.0.0
+faiss-cpu>=1.7.0,<1.9.0
+rank_bm25>=0.2.2,<0.3.0
+
+# Document Loaders
+pypdf>=3.17.0,<5.0.0
 docx2txt==0.8
-pdf2image
-pytesseract
-langchain
-langchain-community
-faiss-cpu
-pydantic
-rank_bm25>=0.2.2
-numpy>=1.21.0 
+openpyxl>=3.1.2,<4.0.0
+unstructured>=0.12.2,<0.14.0 # Base for UnstructuredExcelLoader, add extras like [xlsx] if needed
+
+# Utilities
+numpy>=1.21.0,<2.0.0
+python-dotenv>=1.0.0
+huggingface-hub>=0.21.4 # Often a sub-dependency, but good to be explicit
